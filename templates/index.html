@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><center><h1>Blogger</h1></center> </head>
+<head><center><h1>Blogger</h1></center>
+
+<a href="{{ url_for('add')}}"> Add a new blog </a>
+
+ </head>
 <body>
 <hr>
+<center>
  {% for post in posts %}
           <div class="post-preview">
             <a href="{{ url_for('post', post_id=post.id) }}">
@@ -16,6 +21,6 @@
             <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
           </div>
 {% endfor %}
-
+</center>
 </body>
 </html>

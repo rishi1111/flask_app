@@ -25,6 +25,11 @@ def index():
 def add():
     return render_template('add.html')
 
+@app.route('/update/<int:post_id>')
+def update(post_id):
+    post=Blogpost.query.filter_by(id=post_id).one() #from db
+    return render_template('update.html',post = post)
+
 @app.route('/post/<int:post_id>')
 def post(post_id):
     post=Blogpost.query.filter_by(id=post_id).one()
@@ -48,6 +53,18 @@ def addpost():
     post = Blogpost(title=title, subtitle=subtitle, author=author, content=content, date_posted=datetime.now())
 
     db.session.add(post)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+@app.route('/updatepost/<int:post_id>', methods=['POST'])
+def updatepost(post_id):
+    post=Blogpost.query.filter_by(id=post_id).one()
+    post.title = request.form['title']
+    post.subtitle = request.form['subtitle']
+    post.author = request.form['author']
+    post.content = request.form['content']
+    db.session.merge(post)
     db.session.commit()
 
     return redirect(url_for('index'))

@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
 
-<form name="addForm" id="addForm" method="POST" action="{{ url_for('addpost') }}" novalidate>
+<form name="addForm" id="addForm" method="POST" action="{{ url_for('addpost') }}" >
               
                 <label>Title</label>
                 <input type="text"  placeholder="Title" name="title" id="title" required >
@@ -29,7 +29,7 @@
             <div class="form-group">
               <button type="submit"  id="sendMessageButton">Send</button>
             </div>
-          </form>
+</form>
 
 
 

@@ -1,7 +1,11 @@
 <html>
+<head>
+<a href="{{ url_for('index') }}">Home </a>
+</head>
+<center>
 
           <div class="post-preview">
-            <a href="{{ url_for('delete', post_id=post.id) }}">Delete </a>
+            
               <h2 class="post-title">
                 {{ post.title }}
               </h2>
@@ -12,5 +16,9 @@
             <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
           </div>
           
+</center>
+<a href="{{ url_for('delete', post_id=post.id) }}">Delete </a><br>
+<a href="{{ url_for('update', post_id=post.id) }}">Update </a>
+
 
 </html>
