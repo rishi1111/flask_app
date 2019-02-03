@@ -3,12 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////mnt/c/Users/Rishi/Documents/blog/blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blogs.sqlite3'
 
 db = SQLAlchemy(app)
 
 class Blogpost(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
     subtitle = db.Column(db.String(50))
     author = db.Column(db.String(20))
@@ -25,9 +25,7 @@ def add():
 
 @app.route('/addpost')
 def addpost():
-	
-	
-	
-if __name__ == '__main__':
+    pass
+
+if __name__ =='__main__':
     app.run(debug=True)
-                
