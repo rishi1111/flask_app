@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><center><h1>Blogger</h1></center> </head>
-<body>
-<hr>
- {% for post in posts %}
+<html>
+
           <div class="post-preview">
-            <a href="{{ url_for('post', post_id=post.id) }}">
+            <a href="{{ url_for('delete', post_id=post.id) }}">Delete </a>
               <h2 class="post-title">
                 {{ post.title }}
               </h2>
               <h3 class="post-subtitle">
                 {{ post.subtitle }}
               </h3>
-            </a>
+			<p>{{post.content}}</p>
             <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
           </div>
-{% endfor %}
+          
 
-</body>
 </html>

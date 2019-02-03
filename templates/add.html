@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
 
-<form name="addForm" id="addForm" method="POST" action="" novalidate>
+<form name="addForm" id="addForm" method="POST" action="{{ url_for('addpost') }}" novalidate>
               
                 <label>Title</label>
                 <input type="text"  placeholder="Title" name="title" id="title" required >
